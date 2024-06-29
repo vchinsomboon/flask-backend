@@ -7,7 +7,7 @@ CORS(app)  # Enable CORS for all origins
 # Example API endpoint
 @app.route('/', methods=['GET'])
 def hello():
-    return jsonify({'message': 'Hello from Flask API!'})
+    return jsonify({'message': 'Hello from Flask API, Testing!!'})
 
 # WSGI callable function for Waitress or Gunicorn
 def create_wsgi():
