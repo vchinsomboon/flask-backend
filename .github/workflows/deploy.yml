@@ -16,18 +16,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Set up Google Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0
-        with:
-          version: '342.0.0'
-          service_account_key: ${{ secrets.GCP_SA_KEY }}  # Use the secret for your service account key
-
-      - name: Deploy to Google App Engine
-        run: |
-          gcloud app deploy --quiet --project=${{ env.PROJECT_ID }}
-
-      - name: View deployment logs
-        run: gcloud app logs tail -s ${{ env.SERVICE_NAME }}
+      - name: Deploy to App Engine
+      id: deploy
+      uses: google-github-actions/deploy-appengine@v0.2.0
+      with:
+        deliverables: app.yaml cron.yaml
+        version: v1
+        project_id: ${{ secrets.GCP_PROJECT_ID }}
+        credentials: ${{ secrets.GCP_SA_KEY }}
