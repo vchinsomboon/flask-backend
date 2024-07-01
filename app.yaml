@@ -1,4 +1,8 @@
 runtime: python38
+env_variables:
+  FLASK_ENV: production
+  #DATABASE_URL: production_database_url
+  #SECRET_KEY: production_secret_key
 
 entrypoint: waitress-serve --port=8080 app:app
 
