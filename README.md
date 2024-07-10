@@ -32,7 +32,7 @@ source venv/bin/activate
 Windows
 ```bash
 python -m venv venv
-.\venv\Scripts\activate
+venv\Scripts\activate
 ```
 ### Install Dependencies
 #### 3. Install dependencies:
@@ -72,4 +72,12 @@ Ensure all your changes are committed and pushed to the main branch of your repo
 ### 3. Monitoring Deployment:
 
 Monitor the deployment progress and view logs (Logging/Logs Explorer) in the [Google Cloud Console](https://console.cloud.google.com/home/dashboard?project=flask-react-portfolio).
+
+### 4. Viewing the Production Application
+To view the deployed application in a web browser, execute the following command in your terminal:
+
+```bash
+gcloud app browse
+```
+Ensure you have the Google Cloud SDK installed and authenticated before running this command.
 
